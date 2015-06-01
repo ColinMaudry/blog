@@ -179,9 +179,9 @@ As we need to start somewhere, we might as well take care of the data that we al
 
 *   **header**: Parlementaire attributaire (in English: granting MP)
 *   **dataset_title**: Réserve parlementaire 2013 publiée par Bercy
-*   **dataset_landing_page**: `[https://www.data.gouv.fr/fr/datasets/reserve-parlementaire-* 2013-publiee-par-bercy/][41]`
-*   **resource_url**: `[https://raw.githubusercontent.com/regardscitoyens/Reserve-parlementaire-Bercy/master/data/1409-r%C3%A9serve-parlementaire-2013-Bercy-agr%C3%A9g%C3%A9.csv][42]`
-*   **dataset_publisher**: `[https://www.data.gouv.fr/fr/users/regards-citoyens/][43]`
+*   **dataset_landing_page**: [https://www.data.gouv.fr/fr/datasets/reserve-parlementaire-* 2013-publiee-par-bercy/][41]
+*   **resource_url**: [https://raw.githubusercontent.com/regardscitoyens/Reserve-parlementaire-Bercy/master/data/1409-r%C3%A9serve-parlementaire-2013-Bercy-agr%C3%A9g%C3%A9.csv][42]
+*   **dataset_publisher**: [https://www.data.gouv.fr/fr/users/regards-citoyens/][43]
 *   **sample_data_1**: Bernard Accoyer
 *   **sample_data_2**: Gilles Carrez
 *   **sample_data_3**: Gestion collective des sénateur SOC de la commission des finances
