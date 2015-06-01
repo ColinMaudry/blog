@@ -26,7 +26,7 @@ To illustrate the problem and its solution, let’s use fresh events that take p
 
 The press and associations of citizens analysed ([here][12] ([en][13]) or [here][14] ([en][15])) this information and potential conflicts of interest were highlighted. I assume the MPs will be more careful as the citizens can now watch where the public money goes. On the other hand, wise subsidies are likely to boost the popularity of the MPs who grant them. Or this grant system might simply be deleted as it can be considered as a violation of the separation of powers, as the PMs (legislature) technically replace the municipality, the department and the region (executive) when they fund local associations.
 
-In any case, the publication of the dataset the foundations of an healthy dialogue, based on shared indisputable facts.
+In any case, the publication of the dataset is the foundation of an healthy dialogue, based on shared indisputable facts.
 
 Open government data is like publishing the details of the subsidies granted by the MPs, but at the scale of a country, region or city: making the elected representatives accountable for their actions and giving the citizens the information to base their judgement, and potentially their vote, on facts.
 
@@ -49,7 +49,7 @@ The scope is the number and the depth of the facets under which a certain thing 
 *   **legal**: involvement in legal cases
 *   etc…
 
-Let’s go back to the grants granted by the French MPs in 2013. The data was published by the Ministry of Budget as [a Web site with basic filter functions][16] ([en][17]). The dataset is a table that lists all the grants. For each grant, the following information is included:
+Let’s go back to the grants granted by the French MPs in 2013. The data was published by the Ministry of Budget as [a Web site with basic filter functions][16] ([en][11]). The dataset is a table that lists all the grants. For each grant, the following information is included:
 
 *   Name of the municipality or association who received the grant
 *   Name of the MP
@@ -61,12 +61,12 @@ Let’s go back to the grants granted by the French MPs in 2013. The data was pu
 
 Publishing a dataset with a specific scope is good, because it makes its purpose easy to identify. However, crossing this data with more data about the MP enables a deeper analysis and above all, has great chances to unveil insights that had never been discovered in the past as the two datasets were managed and used in isolation.
 
-The association [Regards citoyens][18] (in English “Citizen looks”) published [an enriched version][19] ([en][20]) of the dataset published by the Ministry of Budget. Besides the facets that were included in the original dataset, they have added the following ones:
+The association [Regards citoyens][17] (in English “Citizen looks”) published [an enriched version][18] ([en][19]) of the dataset published by the Ministry of Budget. Besides the facets that were included in the original dataset, they have added the following ones:
 
 *   Gender
-*   Link to the official Web page of the MP ([example][21], [en][22])
-*   Link to the Web page that aggregates information about the MP on the Web site of Regards citoyens ([example][23], [en][24])
-*   Link to the data previously collected by the association about the MP in XML format ([example][25])
+*   Link to the official Web page of the MP ([example][20], [en][21])
+*   Link to the Web page that aggregates information about the MP on the Web site of Regards citoyens ([example][22], [en][23])
+*   Link to the data previously collected by the association about the MP in XML format ([example][24])
 
 By including links to the content they have previously collected, the association greatly enlarges the scope of the original dataset. Here is a sample:
 
@@ -90,7 +90,7 @@ The initiative of enriching the data published by the government is noble, but t
 
 Technically, enriching a dataset means adding extra columns of data from dataset 1 that describe a subject present in dataset 2. In database terms, this subject, it’s a foreign key, an identifier that is available in two different datasets and that refers to the same thing.
 
-When a new dataset is published on most open data portals, some metadata is also published, such as the date of publication, the administration that publishes the data, or its domain (health, elections, etc.). This metadata enables the creation of faceted search engines ([data.gouv.fr][26], [data.gouv.uk][27]) that help performing accurate search among the numerous datasets.
+When a new dataset is published on most open data portals, some metadata is also published, such as the date of publication, the administration that publishes the data, or its domain (health, elections, etc.). This metadata enables the creation of faceted search engines ([data.gouv.fr][25], [data.gouv.uk][26]) that help performing accurate search among the numerous datasets.
 
 However, no metadata indicates what columns the dataset contains.
 
@@ -118,23 +118,23 @@ We have datasets that describe the same things, but that don’t “know” abou
 
 **Semantics**: meaning, the act of defining what something is.
 
-What we need to boost our open data search is to associate meaning to the data contained in the datasets. Meaning appears when concepts are connected together with meaningful relationships. Great, the W3C has a standard to express semantics: the [Resource Description Framework][28].
+What we need to boost our open data search is to associate meaning to the data contained in the datasets. Meaning appears when concepts are connected together with meaningful relationships. Great, the W3C has a standard to express semantics: the [Resource Description Framework][27].
 
 To create and use meaning, RDF works in 3 steps:
 
 1.  Assign worldwide identifiers to all meaningful things: URIs (e.g. http://dbpedia.org/resource/Mexico)
 2.  Connect the things together with properties (e.g. http://purl.org/dc/terms/creator)
-3.  Query the resulting graph with [SPARQL][29]
+3.  Query the resulting graph with [SPARQL][6]
 
 For instance, the dataset about MPs could be semantically tagged with the RDF graph below:
 
-![Possible RDF graph for a dataset][30]
+![Possible RDF graph for a dataset][28]
 
 <p class="caption">
   Possible RDF graph for a dataset
 </p>
 
-A version of this graph in [Turtle notation][31] can be downloaded [here][32].
+A version of this graph in [Turtle notation][29] can be downloaded [here][30].
 
 This graph means that:
 
@@ -146,7 +146,7 @@ If the datasets stored on data.gouv.fr were all tagged semantically and I wanted
 
 The search interface would translate my search request in a SPARQL query that would look like this:
 
-![Visualization of a SPARQL query and its results][33]
+![Visualization of a SPARQL query and its results][31]
 
 <p class="caption">
   Visualization of a SPARQL query and its results
@@ -158,16 +158,16 @@ You might think:
 
 > “So what? That can be done in SQL/NoSQL/XQuery!”
 
-Yes, but unless you also use URIs to identify things, the scope of your identifiers will be no bigger than your database. With RDF, the scope is the World Wide Web. With a bit of tweaking, if other open data portals use the same vocabularies, I could query them all **[in a single shot][34]**. SQL performs well, but it lacks standardization across vendors and it's limited to a tabular (bi-dimensional) data model.
+Yes, but unless you also use URIs to identify things, the scope of your identifiers will be no bigger than your database. With RDF, the scope is the World Wide Web. With a bit of tweaking, if other open data portals use the same vocabularies, I could query them all **[in a single shot][32]**. SQL performs well, but it lacks standardization across vendors and it's limited to a tabular (bi-dimensional) data model.
 
 When high-availability is required, combining an RDF/SPARQL stack for expressiveness with a NoSQL stack for performance brings the benefits of the two worlds.
 
 Standard vocabularies already exist in RDF to describe datasets:
 
-*   [The Data Catalog Vocabulary (DCAT)][35]
-*   [Dublin Core][36]
-*   [The Vocabulary of Interlinked Datasets (VoID)][37] (relations with other datasets)
-*   [The PROV Ontology (PROV-O)][38] (provenance of the data: creation process, data source, involved agents, etc.)
+*   [The Data Catalog Vocabulary (DCAT)][33]
+*   [Dublin Core][34]
+*   [The Vocabulary of Interlinked Datasets (VoID)][35] (relations with other datasets)
+*   [The PROV Ontology (PROV-O)][36] (provenance of the data: creation process, data source, involved agents, etc.)
 
 ## A national dictionary
 
@@ -175,13 +175,13 @@ If we want to tag the columns, we need to build a reference dictionary of the th
 
 ### 1\. Extracting the column headers
 
-As we need to start somewhere, we might as well take care of the data that we already have. We consequently extract the column headers of all the tabular data formats that we can parse. For each column header, we add the title of dataset, the URL of the dataset, the name of the publisher, and sample data. Example for one column from [this CSV][39] (the second one published [here][40]):
+As we need to start somewhere, we might as well take care of the data that we already have. We consequently extract the column headers of all the tabular data formats that we can parse. For each column header, we add the title of dataset, the URL of the dataset, the name of the publisher, and sample data. Example for one column from [this CSV][37] (the second one published [here][18]):
 
 *   **header**: Parlementaire attributaire (in English: granting MP)
 *   **dataset_title**: Réserve parlementaire 2013 publiée par Bercy
-*   **dataset_landing_page**: [https://www.data.gouv.fr/fr/datasets/reserve-parlementaire-* 2013-publiee-par-bercy/][41]
-*   **resource_url**: [https://raw.githubusercontent.com/regardscitoyens/Reserve-parlementaire-Bercy/master/data/1409-r%C3%A9serve-parlementaire-2013-Bercy-agr%C3%A9g%C3%A9.csv][42]
-*   **dataset_publisher**: [https://www.data.gouv.fr/fr/users/regards-citoyens/][43]
+*   **dataset_landing_page**: [https://www.data.gouv.fr/fr/datasets/reserve-parlementaire-* 2013-publiee-par-bercy/][38]
+*   **resource_url**: [https://raw.githubusercontent.com/regardscitoyens/Reserve-parlementaire-Bercy/master/data/1409-r%C3%A9serve-parlementaire-2013-Bercy-agr%C3%A9g%C3%A9.csv][39]
+*   **dataset_publisher**: [https://www.data.gouv.fr/fr/users/regards-citoyens/][40]
 *   **sample_data_1**: Bernard Accoyer
 *   **sample_data_2**: Gilles Carrez
 *   **sample_data_3**: Gestion collective des sénateur SOC de la commission des finances
@@ -194,13 +194,13 @@ The column consequently contains things that are part of the French Parliament a
 
 To tag the column semantically, we would link it to two types of things, “MP” and “Parliamentary collective fund”. This would result in the following RDF graph:
 
-![The RDF graph of a column][44]
+![The RDF graph of a column][41]
 
 <p class="caption">
   The RDF graph of a column.
 </p>
 
-The types (= classes) of things are in purple, the things (instances of classes) are in yellow. The column object, in the middle, contains things of two types: ***MP*** and ***ParliamentaryCollectiveFund*** . In order to link them with standard vocabularies, I have respectively declared them sub-classes of the classes ***foaf:Person*** and ***foaf:Organization*** from the [FOAF vocabulary][45].
+The types (= classes) of things are in purple, the things (instances of classes) are in yellow. The column object, in the middle, contains things of two types: ***MP*** and ***ParliamentaryCollectiveFund*** . In order to link them with standard vocabularies, I have respectively declared them sub-classes of the classes ***foaf:Person*** and ***foaf:Organization*** from the [FOAF vocabulary][42].
 
 Via the *data:hasProperty* property, I have added that, in this column, each cell contains the name (*foaf:name*) of the ***MP*** or ***ParliamentaryCollectiveFund***. Otherwise, looking at the RDF, we would only know what sort of thing the column describe, not what each cell contains: is that their birth date? their Web site? their role? Adding *data:hasProperty* and *foaf:name*, we know that the cells of this column contain the names of instances of ***MP*** and ***ParliamentaryCollectiveFund***.
 
@@ -210,11 +210,11 @@ Now that we have created types of things, we can infer the semantics of the firs
 
 ### 3\. Creating the dictionary
 
-So far, we have created objects that represent the columns and linked them to their dataset and to one or more types (such as ***MP***) and properties (such as *foaf:name*). However, we miss the fuel for actual semantics: the definitions of the types that we have created. Indeed, some words are polysemic, acronyms need a full form and definitions simply clear ambiguities. As an example, [the definition of ***foaf:Organization***][46]. Fortunately, for a decent part of them, a definition will be found either:
+So far, we have created objects that represent the columns and linked them to their dataset and to one or more types (such as ***MP***) and properties (such as *foaf:name*). However, we miss the fuel for actual semantics: the definitions of the types that we have created. Indeed, some words are polysemic, acronyms need a full form and definitions simply clear ambiguities. As an example, [the definition of ***foaf:Organization***][43]. Fortunately, for a decent part of them, a definition will be found either:
 
 *   in a glossary maintained by the publisher of the data (ideal)
 *   in a dictionary (careful with copyrights)
-*   in an existing ontology, such as [FOAF][47] or [DCAT][48] (possible need to translate it from English)
+*   in an existing ontology, such as [FOAF][38] or [DCAT][33] (possible need to translate it from English)
 *   in Wikipedia
 
 For the types that miss a definition (usually the most specific ones), the best approach is to ask the publisher of the data to provide it.
@@ -225,7 +225,7 @@ Now we have a dictionary with well-defined types and properties that are linked 
 
 1\. A query asks the data: among our previously tagged columns, find me all those that have a `?label` (the header text) that contains "parlementaire" (the header text of the column we want to tag in the new dataset). For each matching `?column`, return the `?definition`(s) of the `?type`(s) of things it describes and the `?propertyLabel` of the `?property` that it corresponds to.
 
-![Query to return similar columns and the related types and properties][49]
+![Query to return similar columns and the related types and properties][39]
 
 <p class="caption">
   A model of <a href="https://gist.github.com/ColinMaudry/b72bedc0c9ca7cb14c15">the corresponding SPARQL query</a> and the results.
@@ -233,7 +233,7 @@ Now we have a dictionary with well-defined types and properties that are linked 
 
 2\. If similar columns are found, their `?definitions` are suggested to the publisher, and the publisher picks the one that matches for the column in the data they are publishing (“What type of thing does the column describe?”). If none matches, either they select “I don’t know” if they don't know what type of things the column describes, or they enter a definition that is added to the dictionary.
 
-![“We have detected the following columns. What is their meaning?”. The contributor either picks a definition in the list or select Other and writes a new one.][50]
+![“We have detected the following columns. What is their meaning?”. The contributor either picks a definition in the list or select Other and writes a new one.][40]
 
 <p class="caption">
   “We have detected the following columns. What is their meaning?”. The contributor either picks a definition in the list or select Other and writes a new one.
@@ -251,7 +251,7 @@ Once the dataset is published the columns that are not linked to a type are take
 
 Why would we need to search for a dataset that could be crossed? Why not having a side panel on each dataset page listing the best candidate datasets for enrichment?
 
-![Fictitious side pane on data.gouv.fr with a list of “linked datasets”, and the name of the foreign key in green.][51]
+![Fictitious side pane on data.gouv.fr with a list of “linked datasets”, and the name of the foreign key in green.][44]
 
 <p class="caption">
   Fictitious side pane on data.gouv.fr with a list of “linked datasets”, and the name of the foreign key in green
@@ -267,70 +267,62 @@ Once the dictionary is up and running, the data itself would be converted to RDF
 *   What was the abstention rate for the last presidential elections of the cities that had an unemployment rate greater than 12 %?
 *   etc…
 
-If you have any question or remark, please kickstart a conversation below or [email me][52], I’d love to have your feedback!
+If you have any question or remark, please kickstart a conversation below or [email me][45], I’d love to have your feedback!
 
 Keep reading:
 
-*   [Why Linked Data for data.gov.uk?][53] by Jeni Tennison
-*   [The Linked data book][54] (HTML)
+*   [Why Linked Data for data.gov.uk?][46] by Jeni Tennison
+*   [The Linked data book][47] (HTML)
 
 * * *
 
-[The source and history of this article on Github][55]
+[The source and history of this article on Github][48]
 
-
-  [1]: https://medium.com/@colinmaudry/from-data-sets-to-linked-data-sets-in-open-government-data-6f0cdc4e1d2f
-  [2]: http://www.w3.org/standards/semanticweb/
-  [3]: https://en.wikipedia.org/wiki/Uniform_resource_identifier
-  [4]: http://www.w3.org/standards/semanticweb/ontology
-  [5]: http://www.w3.org/egov/wiki/RDF_Repository
-  [6]: https://en.wikipedia.org/wiki/SPARQL
-  [7]: https://www.data.gov/
-  [8]: http://data.gov.uk/
-  [9]: http://data.gouv.fr/
-  [10]: http://www2.assemblee-nationale.fr/reserve_parlementaire/plf/
-  [11]: http://translate.google.com/translate?hl=en&sl=auto&tl=en&u=http://www2.assemblee-nationale.fr/reserve_parlementaire/plf/&sandbox=0&usg=ALkJrhiP8o350mtNnsNwoSJIiFCcxsSAjA
-  [12]: http://www.lepoint.fr/politique/qui-profite-de-la-reserve-parlementaire-29-01-2014-1785755_20.php
-  [13]: https://translate.googleusercontent.com/translate_c?depth=1&hl=fr&rurl=translate.google.com&sl=fr&tl=en&u=http://www.lepoint.fr/politique/qui-profite-de-la-reserve-parlementaire-29-01-2014-1785755_20.php&usg=ALkJrhjzemGmehnvoSUlDNd4mucQUQ-4zg
-  [14]: http://www.lexpress.fr/actualite/politique/assemblees/la-reserve-parlementaire-du-senat-une-cagnotte-bien-inegale_1578480.html
-  [15]: https://translate.google.com/translate?sl=fr&tl=en&js=y&prev=_t&hl=fr&ie=UTF-8&u=http://www.lexpress.fr/actualite/politique/assemblees/la-reserve-parlementaire-du-senat-une-cagnotte-bien-inegale_1578480.html&edit-text=&act=url
-  [16]: http://www2.assemblee-nationale.fr/reserve_parlementaire/plf
-  [17]: http://translate.google.com/translate?hl=en&sl=auto&tl=en&u=http://www2.assemblee-nationale.fr/reserve_parlementaire/plf/&sandbox=0&usg=ALkJrhiP8o350mtNnsNwoSJIiFCcxsSAjA
-  [18]: http://regardscitoyens.org/
-  [19]: https://www.data.gouv.fr/fr/datasets/reserve-parlementaire-2013-publiee-par-bercy/
-  [20]: http://translate.google.com/translate?hl=en&sl=auto&tl=en&u=https://www.data.gouv.fr/fr/datasets/reserve-parlementaire-2013-publiee-par-bercy/&sandbox=0&usg=ALkJrhiP8o350mtNnsNwoSJIiFCcxsSAjA
-  [21]: http://www.assemblee-nationale.fr/14/tribun/fiches_id/331567.asp
-  [22]: https://translate.google.com/translate?sl=fr&tl=en&js=y&prev=_t&hl=fr&ie=UTF-8&u=http://www.assemblee-nationale.fr/14/tribun/fiches_id/331567.asp&edit-text=&act=url
-  [23]: http://www.nosdeputes.fr/laure-de-la-raudiere
-  [24]: https://translate.google.com/translate?hl=fr&sl=fr&tl=en&u=http://www.nosdeputes.fr/laure-de-la-raudiere
-  [25]: http://www.nosdeputes.fr/laure-de-la-raudiere/xml
-  [26]: https://www.data.gouv.fr/fr/search/
-  [27]: http://data.gov.uk/data/search
-  [28]: http://www.w3.org/TR/2014/NOTE-rdf11-primer-20140624/#section-Introduction
-  [29]: https://en.wikipedia.org/wiki/SPARQL
-  [30]: https://www.lucidchart.com/publicSegments/view/5569f5ee-a910-404a-8a58-51630a0044b3/image.jpeg
-  [31]: https://en.wikipedia.org/wiki/Turtle_%28syntax%29
-  [32]: http://colin.maudry.com/share/mps.ttl
-  [33]: https://www.lucidchart.com/publicSegments/view/5569fa75-c874-4964-a87b-5b730a0044b3/image.jpeg
-  [34]: http://www.w3.org/TR/sparql11-federated-query/#introduction
-  [35]: http://www.w3.org/TR/vocab-dcat/#vocabulary-overview
-  [36]: http://purl.org/dc/terms/
-  [37]: http://www.w3.org/TR/void/#introduction
-  [38]: http://www.w3.org/TR/2013/REC-prov-o-20130430/#introduction
-  [39]: https://raw.githubusercontent.com/regardscitoyens/Reserve-parlementaire-Bercy/master/data/1409-r%C3%A9serve-parlementaire-2013-Bercy-agr%C3%A9g%C3%A9.csv
-  [40]: https://www.data.gouv.fr/fr/datasets/reserve-parlementaire-2013-publiee-par-bercy/
-  [41]: http://xmlns.com/foaf/spec/#sec-glance
-  [42]: https://www.lucidchart.com/publicSegments/view/556b50c8-96a8-4ac1-9d4c-027b0a00821d/image.jpeg
-  [43]: http://colin.maudry.com/wp-content/uploads/2015/05/hackedDGFR.png
-  [44]: https://www.lucidchart.com/publicSegments/view/542ab4c2-e314-445f-94ca-5bb60a008ac6/image.png
-  [45]: http://xmlns.com/foaf/0.1/
-  [46]: http://xmlns.com/foaf/spec/#term_Organization
-  [47]: http://xmlns.com/foaf/spec/#sec-glance
-  [48]: http://www.w3.org/TR/vocab-dcat/#vocabulary-overview
-  [49]: https://www.lucidchart.com/publicSegments/view/556b50c8-96a8-4ac1-9d4c-027b0a00821d/image.jpeg
-  [50]: http://colin.maudry.com/wp-content/uploads/2015/05/hackedDGFR.png
-  [51]: http://colin.maudry.com/wp-content/uploads/2015/05/hackedDGFR2.png
-  [52]: http://mailto:colin@maudry.com
-  [53]: http://%20http://www.jenitennison.com/2010/01/26/why-linked-data-for-data-gov-uk.html
-  [54]: http://linkeddatabook.com/editions/1.0/#htoc1
-  [55]: https://github.com/ColinMaudry/blog/blob/master/en/From%20datasets%20to%20linked%20datasets%20in%20open%20government%20data.md
+ [1]: https://medium.com/@colinmaudry/from-data-sets-to-linked-data-sets-in-open-government-data-6f0cdc4e1d2f
+ [2]: http://www.w3.org/standards/semanticweb/
+ [3]: https://en.wikipedia.org/wiki/Uniform_resource_identifier
+ [4]: http://www.w3.org/standards/semanticweb/ontology
+ [5]: http://www.w3.org/egov/wiki/RDF_Repository
+ [6]: https://en.wikipedia.org/wiki/SPARQL
+ [7]: https://www.data.gov/
+ [8]: http://data.gov.uk/
+ [9]: http://data.gouv.fr/
+ [10]: http://www2.assemblee-nationale.fr/reserve_parlementaire/plf/
+ [11]: http://translate.google.com/translate?hl=en&sl=auto&tl=en&u=http://www2.assemblee-nationale.fr/reserve_parlementaire/plf/&sandbox=0&usg=ALkJrhiP8o350mtNnsNwoSJIiFCcxsSAjA
+ [12]: http://www.lepoint.fr/politique/qui-profite-de-la-reserve-parlementaire-29-01-2014-1785755_20.php
+ [13]: https://translate.googleusercontent.com/translate_c?depth=1&hl=fr&rurl=translate.google.com&sl=fr&tl=en&u=http://www.lepoint.fr/politique/qui-profite-de-la-reserve-parlementaire-29-01-2014-1785755_20.php&usg=ALkJrhjzemGmehnvoSUlDNd4mucQUQ-4zg
+ [14]: http://www.lexpress.fr/actualite/politique/assemblees/la-reserve-parlementaire-du-senat-une-cagnotte-bien-inegale_1578480.html
+ [15]: https://translate.google.com/translate?sl=fr&tl=en&js=y&prev=_t&hl=fr&ie=UTF-8&u=http://www.lexpress.fr/actualite/politique/assemblees/la-reserve-parlementaire-du-senat-une-cagnotte-bien-inegale_1578480.html&edit-text=&act=url
+ [16]: http://www2.assemblee-nationale.fr/reserve_parlementaire/plf
+ [17]: http://regardscitoyens.org/
+ [18]: https://www.data.gouv.fr/fr/datasets/reserve-parlementaire-2013-publiee-par-bercy/
+ [19]: http://translate.google.com/translate?hl=en&sl=auto&tl=en&u=https://www.data.gouv.fr/fr/datasets/reserve-parlementaire-2013-publiee-par-bercy/&sandbox=0&usg=ALkJrhiP8o350mtNnsNwoSJIiFCcxsSAjA
+ [20]: http://www.assemblee-nationale.fr/14/tribun/fiches_id/331567.asp
+ [21]: https://translate.google.com/translate?sl=fr&tl=en&js=y&prev=_t&hl=fr&ie=UTF-8&u=http://www.assemblee-nationale.fr/14/tribun/fiches_id/331567.asp&edit-text=&act=url
+ [22]: http://www.nosdeputes.fr/laure-de-la-raudiere
+ [23]: https://translate.google.com/translate?hl=fr&sl=fr&tl=en&u=http://www.nosdeputes.fr/laure-de-la-raudiere
+ [24]: http://www.nosdeputes.fr/laure-de-la-raudiere/xml
+ [25]: https://www.data.gouv.fr/fr/search/
+ [26]: http://data.gov.uk/data/search
+ [27]: http://www.w3.org/TR/2014/NOTE-rdf11-primer-20140624/#section-Introduction
+ [28]: https://www.lucidchart.com/publicSegments/view/5569f5ee-a910-404a-8a58-51630a0044b3/image.jpeg
+ [29]: https://en.wikipedia.org/wiki/Turtle_%28syntax%29
+ [30]: http://colin.maudry.com/share/mps.ttl
+ [31]: https://www.lucidchart.com/publicSegments/view/5569fa75-c874-4964-a87b-5b730a0044b3/image.jpeg
+ [32]: http://www.w3.org/TR/sparql11-federated-query/#introduction
+ [33]: http://www.w3.org/TR/vocab-dcat/#vocabulary-overview
+ [34]: http://purl.org/dc/terms/
+ [35]: http://www.w3.org/TR/void/#introduction
+ [36]: http://www.w3.org/TR/2013/REC-prov-o-20130430/#introduction
+ [37]: https://raw.githubusercontent.com/regardscitoyens/Reserve-parlementaire-Bercy/master/data/1409-r%C3%A9serve-parlementaire-2013-Bercy-agr%C3%A9g%C3%A9.csv
+ [38]: http://xmlns.com/foaf/spec/#sec-glance
+ [39]: https://www.lucidchart.com/publicSegments/view/556b50c8-96a8-4ac1-9d4c-027b0a00821d/image.jpeg
+ [40]: http://colin.maudry.com/wp-content/uploads/2015/05/hackedDGFR.png
+ [41]: https://www.lucidchart.com/publicSegments/view/542ab4c2-e314-445f-94ca-5bb60a008ac6/image.png
+ [42]: http://xmlns.com/foaf/0.1/
+ [43]: http://xmlns.com/foaf/spec/#term_Organization
+ [44]: http://colin.maudry.com/wp-content/uploads/2015/05/hackedDGFR2.png
+ [45]: http://mailto:colin@maudry.com
+ [46]: http://%20http://www.jenitennison.com/2010/01/26/why-linked-data-for-data-gov-uk.html
+ [47]: http://linkeddatabook.com/editions/1.0/#htoc1
+ [48]: https://github.com/ColinMaudry/blog/blob/master/en/From%20datasets%20to%20linked%20datasets%20in%20open%20government%20data.md
