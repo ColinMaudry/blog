@@ -1,4 +1,4 @@
-Setting up terminology processes and tools to optimize communication: the case of the Open Contracting Partnership
+Potential benefits of terminology management: the case of the Open Contracting Partnership
 ==================================================================================
 
 # Context
@@ -15,12 +15,12 @@ A high level of trust is achieved through quality, and quality is achieved throu
 The processes define the different steps that are undergone, and by who, to produce the deliverables:
 
 - the source content (writing)
-- the multilingual glossary of terms (AKA terminological database)
+- the multilingual glossary of terms (a.k.a. terminological database)
 - the translated content
 
 The tools support the processes and make the various steps easier and less prone to errors for those who undertake them: scheduling, automation, batch processing, statistics, etc.
 
-In this note, I'll focus on terminology processes and tooling, as it's the foundation of efficient communication.
+In this note, I'll focus on terminology processes and tooling, as it's the foundation of an efficient communication.
 
 # What is terminology?
 
@@ -29,6 +29,7 @@ Terminology is the science of managing terms and their characteristics. A term i
 The characteristics of a term may include:
 
 - a definition
+- if not written by the publisher of the glossary, the source of the definition (be careful of copyright)
 - a sample sentence where the term appears
 - grammatical characteristics (genre, nature, function, etc.)
 - synonyms
