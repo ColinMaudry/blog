@@ -15,6 +15,14 @@ Tous les scripts, commandes et les échantillons de résultats sont regroupés s
 - [pour la conversion avec XSLT 3.0](https://gist.github.com/ColinMaudry/74464b8bc02e0e3786873dc1c7175cc0).
 - [pour la conversion avec jq 1.5](https://gist.github.com/ColinMaudry/78bd2fa840b3a10225d9f4ce61a2f678)
 
+<blockquote class="twitter-tweet" data-cards="hidden" data-lang="en">
+  <p lang="fr" dir="ltr">
+    Nouvel article : j'ai converti les données de la <a href="https://twitter.com/hashtag/CommandePublique?src=hash&ref_src=twsrc%5Etfw">#CommandePublique</a> bretonne au format réglementaire : <a href="https://t.co/nzMNMijAQH">https://t.co/nzMNMijAQH</a> <a href="https://t.co/oUkGQiu4XX">pic.twitter.com/oUkGQiu4XX</a>
+  </p>— Colin Maudry (FR) (@col1m)
+
+  <a href="https://twitter.com/col1m/status/914188336058781696?ref_src=twsrc%5Etfw">September 30, 2017</a>
+</blockquote>
+
 Le fichier source de cet article est [publié sur Github](https://github.com/ColinMaudry/blog/blob/develop/fr/donn%C3%A9es-bretonnes-format-r%C3%A9glementaire.md).
 
 ## Mise en correspondance des champs ("mapping")
