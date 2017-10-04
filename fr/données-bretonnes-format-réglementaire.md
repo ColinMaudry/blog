@@ -4,11 +4,16 @@ Afin de mesurer le travail à accomplir, j'ai voulu débroussailler le chemin en
 
 <!--more-->
 
+**Mise à jour du 3 octobre 2017** : *XSLT c'était intéressant, mais clairement pas une solution optimale. La solution optimale pour produire du JSON, c'est [jq](https://stedolan.github.io/jq/). [Suivez le guide](#avec-jq)*
+
 Pour point de départ, j'ai opté pour [les données publiées par les collectivités bretonnes](https://breizh-sba.opendatasoft.com/explore/dataset/marches-publics-collectivites-bretonnes/table/). Ces données couvrent la période de 2013 à 2016, mais elles ont le mérite d'avoir de nombreux champs en commun avec le format réglementaire.
 
 Cette expérience a été menée sous [Linux Mint](https://fr.wikipedia.org/wiki/Linux_Mint).
 
-Tous les scripts, commandes et les échantillons de résultats sont regroupés sur [ce Gist](https://gist.github.com/ColinMaudry/74464b8bc02e0e3786873dc1c7175cc0).
+Tous les scripts, commandes et les échantillons de résultats sont regroupés sur ces Gist
+
+- [pour la conversion avec XSLT 3.0](https://gist.github.com/ColinMaudry/74464b8bc02e0e3786873dc1c7175cc0).
+- [pour la conversion avec jq 1.5](https://gist.github.com/ColinMaudry/78bd2fa840b3a10225d9f4ce61a2f678)
 
 Le fichier source de cet article est [publié sur Github](https://github.com/ColinMaudry/blog/blob/develop/fr/donn%C3%A9es-bretonnes-format-r%C3%A9glementaire.md).
 
@@ -47,22 +52,24 @@ Le fichier source de cet article est [publié sur Github](https://github.com/Col
 
 Au final, seuls trois champs du format réglementaire ne sont pas présent dans le CSV des données bretones. Lorsque toutes les collectivités bretonnes auront rempli toutes les colonnes du format CSV breton, elles auront fait une très grande part du chemin vers la conformité avec le format réglementaire, mais surtout vers l'exhaustivité ! En effet, les usages innovants des données des marchés publics n'émergeront que si les données sont exhaustives.
 
-## Conversion du CSV breton vers le format JSON réglementaire
+## Conversion du CSV breton vers le format JSON réglementaire (avec XSLT)
 
 Les données des marchés publics peuvent être publiées dans deux formats : XML et JSON. Je n'ai encore jamais fait de conversion de CSV vers JSON, je commence donc par celle-ci.
 
 Dans tous les cas, j'ai décidé de m'appuyer sur le langage de conversion [XSLT 3.0](https://www.w3.org/TR/xslt-30/#what-is-xslt), qui permet de faire des conversions de données entre XML et JSON et qui a l'avantage d'être standardisé par le W3C.
+
+**Mise à jour du 3/10/17** : *XSLT 3.0 était testé ici à titre expérimental, mais s'avère être très lent. Il sera peut être utile pour des conversion XML <-> JSON ou XML <-> XML. Pour une méthode performante, voir [mon expérience avec jq ci-dessous](#avec-jq)*
 
 Le fichier de départ est `marches-publics-collectivites-bretonnes.csv` (5749 entrées), téléchargeable sur [le site My Breizh Open Data](https://breizh-sba.opendatasoft.com/explore/dataset/marches-publics-collectivites-bretonnes/export/).
 
 
 Voici les étapes de la conversion avec des liens vers les scripts utilisés et des échantillons des données intermédiaires :
 
-| #   | Source                                                                                                                           | Résultat                                                                                                                                                                                                                            | Outil                                                                                                                                                                                        | Commande                                                                                                         | Temps de conversion |
-| --- | -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------- |
-| 1   | [CSV breton (5749 entrées))](https://breizh-sba.opendatasoft.com/explore/dataset/marches-publics-collectivites-bretonnes/table/) | [Script Shell (utilitaire sed)](https://gist.github.com/ColinMaudry/74464b8bc02e0e3786873dc1c7175cc0#file-1-mapping-des-procedures-sh)                                                                                              | CSV breton avec noms de procédures valides                                                                                                                                                   | `./mapping-des-procédures.sh marches-publics-collectivites-bretonnes.csv`                                        | 2,9 secondes        |
-| 2   | CSV breton avec noms de procédures valides                                                                                       | [XML tabulaire](https://gist.github.com/ColinMaudry/74464b8bc02e0e3786873dc1c7175cc0#file-2-tabulaire-xml)                                                                                                                          | [Script Python](https://gist.github.com/ColinMaudry/74464b8bc02e0e3786873dc1c7175cc0#file-2-conversion-xml-tabulaire-py)                                                                     | `./conversion-xml-tabulaire.py marches-publics-collectivites-bretonnes.csv > tabulaire.xml`                      | 0,4 seconde         |
-| 3   | [XML tabulaire](https://gist.github.com/ColinMaudry/74464b8bc02e0e3786873dc1c7175cc0#file-2-tabulaire-xml)                       | [Format JSON réglementaire](https://gist.github.com/ColinMaudry/74464b8bc02e0e3786873dc1c7175cc0#file-2d-format-reglementaire-json) ([format paquet](https://github.com/etalab/format-commande-publique/tree/master/exemples/json)) | [Saxon HE 9.8 pour Java](http://saxonica.com/download/java.xml), [Script XSLT 3.0](https://gist.github.com/ColinMaudry/74464b8bc02e0e3786873dc1c7175cc0#file-2b-xml-tabulaire-vers-json-xsl) | `java -jar saxon9he.jar -s:test-tabular.xml tabulaire-vers-représentation-json.xsl -o:format-réglementaire.json` | 3,6 secondes        |
+| #   | Source                                                                                                                           | Résultat                                                                                                                                                                                                                            | Outil                                                                                                                                                                                        | Commande                                                                                                      | Temps de conversion |
+| --- | -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------- |
+| 1   | [CSV breton (5749 entrées))](https://breizh-sba.opendatasoft.com/explore/dataset/marches-publics-collectivites-bretonnes/table/) | CSV breton avec noms de procédures valides                                                                                                                                                                                          | [Script Shell (utilitaire sed)](https://gist.github.com/ColinMaudry/74464b8bc02e0e3786873dc1c7175cc0#file-1-mapping-des-procedures-sh)                                                       | `./mapping-des-procédures.sh marches-publics-collectivites-bretonnes.csv`                                     | 2,9 secondes        |
+| 2   | CSV breton avec noms de procédures valides                                                                                       | [XML tabulaire](https://gist.github.com/ColinMaudry/74464b8bc02e0e3786873dc1c7175cc0#file-2-tabulaire-xml)                                                                                                                          | [Script Python](https://gist.github.com/ColinMaudry/74464b8bc02e0e3786873dc1c7175cc0#file-2-conversion-xml-tabulaire-py)                                                                     | `./conversion-xml-tabulaire.py marches-publics-collectivites-bretonnes.csv > tabulaire.xml`                   | 0,4 seconde         |
+| 3   | [XML tabulaire](https://gist.github.com/ColinMaudry/74464b8bc02e0e3786873dc1c7175cc0#file-2-tabulaire-xml)                       | [Format JSON réglementaire](https://gist.github.com/ColinMaudry/74464b8bc02e0e3786873dc1c7175cc0#file-2d-format-reglementaire-json) ([format paquet](https://github.com/etalab/format-commande-publique/tree/master/exemples/json)) | [Saxon HE 9.8 pour Java](http://saxonica.com/download/java.xml), [Script XSLT 3.0](https://gist.github.com/ColinMaudry/74464b8bc02e0e3786873dc1c7175cc0#file-2b-xml-tabulaire-vers-json-xsl) | `java -jar saxon9he.jar -s:tabulaire.xml tabulaire-vers-représentation-json.xsl -o:format-réglementaire.json` | 3,6 secondes        |
 
 ### Étape 1
 
@@ -99,9 +106,9 @@ Qui doivent donc être "mappées", mises en correspondance avec les valeurs acce
 - Marché négocié sans publicité ni mise en concurrence préalable
 - Dialogue compétitif
 
-Pour ce faire, [mon script](https://gist.github.com/ColinMaudry/74464b8bc02e0e3786873dc1c7175cc0#file-1-mapping-des-procedures-sh) remplace les valeurs non valides par leur équivalent issu du format réglemenaire. Le Service de la commande publique et de la politique d’achat (SCPPA) m'a gentiement fourni [un tableau de correspondance](https://files.maudry.fr/f.php?h=2YZlHAGn&d=1).
+Pour ce faire, [mon script](https://gist.github.com/ColinMaudry/74464b8bc02e0e3786873dc1c7175cc0#file-1-mapping-des-procedures-sh) remplace les valeurs non valides par leur équivalent issu du format réglementaire. Le Service de la commande publique et de la politique d’achat (SCPPA) du Conseil Régional de Bretagne m'a gentiment fourni [un tableau de correspondance](https://files.maudry.fr/f.php?h=2YZlHAGn&d=1).
 
-Les valeurs n'ayant pas d'équivalent sont maintenues, elles seront ignorées au moment de la transformation vers JSON (étape #3).
+Les valeurs n'ayant pas d'équivalent sont maintenues et elles seront ignorées au moment de la transformation vers JSON (étape #3).
 
 ### Étape 2
 
@@ -134,6 +141,86 @@ L'essentiel de ce code sert donc à créer la représentation XML du JSON régle
 Voici à quoi le JSON produit ressemble pour les deux premières lignes du CSV, après avoir été indenté :
 
 <script src="https://gist.github.com/ColinMaudry/74464b8bc02e0e3786873dc1c7175cc0.js?file=3c-format-réglementaire.json"></script>
+
+<a id="avec-jq"/>
+## Conversion du CSV breton vers le format JSON réglementaire (avec jq)
+
+Après avoir joué avec la sérialisation JSON de XSLT 3.0, je me devais de proposer une solution qui soit optimale, tant en terme de performance que de maintenance (configuration, utilisation d'un outil populaire). [jq](https://stedolan.github.io/jq/) remplit parfaitement ces critères.
+
+Voici les étapes de la conversion avec des liens vers les scripts utilisés et des échantillons des données intermédiaires :
+
+| #   | Source                                                                                                                           | Résultat                                                                                                                      | Outil | Commande                                                                                               | Temps de conversion     |
+| --- | -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----- | ------------------------------------------------------------------------------------------------------ | ----------------------- |
+| 1   | [CSV breton (5749 entrées))](https://breizh-sba.opendatasoft.com/explore/dataset/marches-publics-collectivites-bretonnes/table/) | [tabulaire.json](https://gist.github.com/ColinMaudry/78bd2fa840b3a10225d9f4ce61a2f678#file-1-tabulaire-json)                                                                                                                | [Script Python csv2json](https://github.com/nephridium/csv2json/blob/98956b1a888838520141aa71c672f680447ca3de/csv2json.py)      | `./csv2json.py -H 0 -S ";" marches-publics-collectivites-bretonnes.csv tabulaire.json`                 | 0,6 seconde             |
+| 2   | [tabulaire.json](https://gist.github.com/ColinMaudry/78bd2fa840b3a10225d9f4ce61a2f678#file-1-tabulaire-json)                                                                                                                   | [Format JSON réglementaire](https://gist.github.com/ColinMaudry/78bd2fa840b3a10225d9f4ce61a2f678#file-2c-format-reglementaire-json) ([format paquet](https://github.com/etalab/format-commande-publique/tree/master/exemples/json)) |   [jq 1.5](https://stedolan.github.io/jq/), [filtre jq](https://gist.github.com/ColinMaudry/78bd2fa840b3a10225d9f4ce61a2f678#file-2a-jq-filter-jq)    | `jq --slurpfile procedures procedures.json -f jq-filter.jq tabulaire.json > format-réglementaire.json` | 0,3 seconde (oui oui !) |
+
+### Étape 1
+
+Avant de pouvoir produire la structure du format réglementaire au format JSON, il nous faut passer du format CSV au format JSON.
+
+Les options pour ce faire ne manquent pas, j'ai donc opté pour [un script Python](https://github.com/nephridium/csv2json/blob/98956b1a888838520141aa71c672f680447ca3de/csv2json.py), qui a l'avantage d'être multi-plateforme, compréhensible par nombre d'informaticiens et raisonnablement performant.
+
+Et voici le résulat pour les deux premières lignes du CSV :
+
+<script src="https://gist.github.com/ColinMaudry/78bd2fa840b3a10225d9f4ce61a2f678.js?file=1-tabulaire.json"></script>
+
+Si vous connaissez une méthode plus performante, merci de m'en faire part dans les commentaires, sous l'article.
+
+### Étape 2
+
+C'est ici que la magie opère. Ce sont les performances et la simplicité d'utilisation de [jq](https://stedolan.github.io/jq/) qui me font chaudement recommander l'utilisation de la version JSON du format réglementaire.
+
+jq est à la fois un langage et une solution logicielle proposée
+
+- sous forme d'[outil en ligne de commande](https://stedolan.github.io/jq/download/) (celui que j'ai utilisé)
+- sous forme de [paquet NPM](https://www.npmjs.com/package/JQ) pour être intégré à des développements en JavaScript
+
+Le langage permet de définir des filtres qui transforme une structure JSON en entrée vers une structure JSON différente.
+
+**Exemple :**
+
+JSON de départ
+
+```
+{
+    "prenom": "Colin",
+    "nom": "Maudry"
+}
+```
+
+Commande jq avec son filtre entre "'" :
+
+```
+jq ' . | { nom_complet : (.prenom + " " + .nom) }'
+```
+
+Résultat :
+
+```
+{
+    "nom_complet": "Colin Maudry"
+}
+```
+
+Ici, on est passé d'une structure qui a deux paramètres différents pour le nom et le prénom, à une structure qui concatène (avec les `+`) les deux propriétés pour n'en faire qu'une seule (`nom_complet`). Et la transformation a pris 5 millièmes de seconde, ce qui signfie que jq se lance instantanément.
+
+Pour la transformation des données bretonnes sous forme de JSON tabulaire, j'ai utilisé la commande suivante :
+
+```
+jq --slurpfile procedures procedures.json -f jq-filter.jq tabulaire.json > format-réglementaire.json
+```
+
+Cette commande fait trois choses :
+
+- `--slurpfile procedures procedures.json` : le fichier [procedures.json](https://gist.github.com/ColinMaudry/78bd2fa840b3a10225d9f4ce61a2f678#file-2b-procedures-json) est chargé afin de faire correspondre les noms de procédures invalides avec des noms valides vis à vis de l'arrêté données essentielles
+- `-f jq-filter.jq tabulaire.json` : le fichier filtre[jq-filter.jq](https://gist.github.com/ColinMaudry/78bd2fa840b3a10225d9f4ce61a2f678#file-2a-jq-filter-jq) (écrit en [langage jq](https://stedolan.github.io/jq/manual/)) est chargé pour tranformer le fichier source [tabulaire.json](https://gist.github.com/ColinMaudry/78bd2fa840b3a10225d9f4ce61a2f678#file-1-tabulaire-json)
+- `> format-réglementaire.json` : le résultat de la transformation est enregistré dans le fichier [format-réglementaire.json](https://gist.github.com/ColinMaudry/78bd2fa840b3a10225d9f4ce61a2f678#file-2c-format-reglementaire-json)
+
+Et 3 dixièmes de seconde plus tard, les 5 749 marchés sont convertis au format réglementaire, tout en incluant la normalisation des noms de procédure.
+
+<script src="https://gist.github.com/ColinMaudry/78bd2fa840b3a10225d9f4ce61a2f678.js?file=2a-jq-filter.jq"></script>
+
+<script src="https://gist.github.com/ColinMaudry/78bd2fa840b3a10225d9f4ce61a2f678.js?file=2c-format-reglementaire.json"></script>
 
 ## Validation du format JSON
 
