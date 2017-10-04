@@ -142,7 +142,8 @@ Voici à quoi le JSON produit ressemble pour les deux premières lignes du CSV, 
 
 <script src="https://gist.github.com/ColinMaudry/74464b8bc02e0e3786873dc1c7175cc0.js?file=3c-format-réglementaire.json"></script>
 
-<a id="avec-jq"/>
+<a id="avec-jq"></a>
+
 ## Conversion du CSV breton vers le format JSON réglementaire (avec jq)
 
 Après avoir joué avec la sérialisation JSON de XSLT 3.0, je me devais de proposer une solution qui soit optimale, tant en terme de performance que de maintenance (configuration, utilisation d'un outil populaire). [jq](https://stedolan.github.io/jq/) remplit parfaitement ces critères.
@@ -181,12 +182,12 @@ Le langage permet de définir des filtres qui transforme une structure JSON en e
 
 JSON de départ
 
-```
+<pre>
 {
     "prenom": "Colin",
     "nom": "Maudry"
 }
-```
+</pre>
 
 Commande jq avec son filtre entre "'" :
 
@@ -196,11 +197,11 @@ jq ' . | { nom_complet : (.prenom + " " + .nom) }'
 
 Résultat :
 
-```
+<pre>
 {
     "nom_complet": "Colin Maudry"
 }
-```
+</pre>
 
 Ici, on est passé d'une structure qui a deux paramètres différents pour le nom et le prénom, à une structure qui concatène (avec les `+`) les deux propriétés pour n'en faire qu'une seule (`nom_complet`). Et la transformation a pris 5 millièmes de seconde, ce qui signfie que jq se lance instantanément.
 
@@ -218,9 +219,13 @@ Cette commande fait trois choses :
 
 Et 3 dixièmes de seconde plus tard, les 5 749 marchés sont convertis au format réglementaire, tout en incluant la normalisation des noms de procédure.
 
+**Le fichier filtre en jq :**
+
 <script src="https://gist.github.com/ColinMaudry/78bd2fa840b3a10225d9f4ce61a2f678.js?file=2a-jq-filter.jq"></script>
 
-<script src="https://gist.github.com/ColinMaudry/78bd2fa840b3a10225d9f4ce61a2f678.js?file=2c-format-reglementaire.json"></script>
+**Le résultat (2 premières lignes)** :
+
+<script src="https://gist.github.com/ColinMaudry/78bd2fa840b3a10225d9f4ce61a2f678.js?file=2c-format-réglementaire.json"></script>
 
 ## Validation du format JSON
 
