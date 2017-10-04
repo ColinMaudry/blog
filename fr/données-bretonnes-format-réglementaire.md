@@ -4,7 +4,7 @@ Afin de mesurer le travail à accomplir, j'ai voulu débroussailler le chemin en
 
 <!--more-->
 
-**Mise à jour du 3 octobre** : *XSLT c'était intéressant, mais clairement pas une solution optimale. La solution optimale pour produire du JSON, c'est [jq](https://stedolan.github.io/jq/). [Suivez le guide](#avec-jq)*
+**Mise à jour du 3 octobre 2017** : *XSLT c'était intéressant, mais clairement pas une solution optimale. La solution optimale pour produire du JSON, c'est [jq](https://stedolan.github.io/jq/). [Suivez le guide](#avec-jq)*
 
 Pour point de départ, j'ai opté pour [les données publiées par les collectivités bretonnes](https://breizh-sba.opendatasoft.com/explore/dataset/marches-publics-collectivites-bretonnes/table/). Ces données couvrent la période de 2013 à 2016, mais elles ont le mérite d'avoir de nombreux champs en commun avec le format réglementaire.
 
@@ -156,7 +156,71 @@ Voici les étapes de la conversion avec des liens vers les scripts utilisés et 
 
 ### Étape 1
 
+Avant de pouvoir produire la structure du format réglementaire au format JSON, il nous faut passer du format CSV au format JSON.
+
+Les options pour ce faire ne manquent pas, j'ai donc opté pour [un script Python](https://github.com/nephridium/csv2json/blob/98956b1a888838520141aa71c672f680447ca3de/csv2json.py), qui a l'avantage d'être multi-plateforme, compréhensible par nombre d'informaticiens et raisonnablement performant.
+
+Et voici le résulat pour les deux premières lignes du CSV :
+
+<script src="https://gist.github.com/ColinMaudry/78bd2fa840b3a10225d9f4ce61a2f678.js?file=1-tabulaire.json"></script>
+
+Si vous connaissez une méthode plus performante, merci de m'en faire part dans les commentaires, sous l'article.
+
 ### Étape 2
+
+C'est ici que la magie opère. Ce sont les performances et la simplicité d'utilisation de [jq](https://stedolan.github.io/jq/) qui me font chaudement recommander l'utilisation de la version JSON du format réglementaire.
+
+jq est à la fois un langage et une solution logicielle proposée
+
+- sous forme d'[outil en ligne de commande](https://stedolan.github.io/jq/download/) (celui que j'ai utilisé)
+- sous forme de [paquet NPM](https://www.npmjs.com/package/JQ) pour être intégré à des développements en JavaScript
+
+Le langage permet de définir des filtres qui transforme une structure JSON en entrée vers une structure JSON différente.
+
+**Exemple :**
+
+JSON de départ
+
+```
+{
+    "prenom": "Colin",
+    "nom": "Maudry"
+}
+```
+
+Commande jq avec son filtre entre "'" :
+
+```
+jq ' . | { nom_complet : (.prenom + " " + .nom) }'
+```
+
+Résultat :
+
+```
+{
+    "nom_complet": "Colin Maudry"
+}
+```
+
+Ici, on est passé d'une structure qui a deux paramètres différents pour le nom et le prénom, à une structure qui concatène (avec les `+`) les deux propriétés pour n'en faire qu'une seule (`nom_complet`). Et la transformation a pris 5 millièmes de seconde, ce qui signfie que jq se lance instantanément.
+
+Pour la transformation des données bretonnes sous forme de JSON tabulaire, j'ai utilisé la commande suivante :
+
+```
+jq --slurpfile procedures procedures.json -f jq-filter.jq tabulaire.json > format-réglementaire.json
+```
+
+Cette commande fait trois choses :
+
+- `--slurpfile procedures procedures.json` : le fichier [procedures.json](https://gist.github.com/ColinMaudry/78bd2fa840b3a10225d9f4ce61a2f678#file-2b-procedures-json) est chargé afin de faire correspondre les noms de procédures invalides avec des noms valides vis à vis de l'arrêté données essentielles
+- `-f jq-filter.jq tabulaire.json` : le fichier filtre[jq-filter.jq](https://gist.github.com/ColinMaudry/78bd2fa840b3a10225d9f4ce61a2f678#file-2a-jq-filter-jq) (écrit en [langage jq](https://stedolan.github.io/jq/manual/)) est chargé pour tranformer le fichier source [tabulaire.json](https://gist.github.com/ColinMaudry/78bd2fa840b3a10225d9f4ce61a2f678#file-1-tabulaire-json)
+- `> format-réglementaire.json` : le résultat de la transformation est enregistré dans le fichier [format-réglementaire.json](https://gist.github.com/ColinMaudry/78bd2fa840b3a10225d9f4ce61a2f678#file-2c-format-reglementaire-json)
+
+Et 3 dixièmes de seconde plus tard, les 5 749 marchés sont convertis au format réglementaire, tout en incluant la normalisation des noms de procédure.
+
+<script src="https://gist.github.com/ColinMaudry/78bd2fa840b3a10225d9f4ce61a2f678.js?file=2a-jq-filter.jq"></script>
+
+<script src="https://gist.github.com/ColinMaudry/78bd2fa840b3a10225d9f4ce61a2f678.js?file=2c-format-reglementaire.json"></script>
 
 ## Validation du format JSON
 
