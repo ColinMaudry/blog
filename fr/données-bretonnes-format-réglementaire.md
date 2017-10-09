@@ -15,6 +15,9 @@ Tous les scripts, commandes et les échantillons de résultats sont regroupés s
 - [pour la conversion avec XSLT 3.0](https://gist.github.com/ColinMaudry/74464b8bc02e0e3786873dc1c7175cc0).
 - [pour la conversion avec jq 1.5](https://gist.github.com/ColinMaudry/78bd2fa840b3a10225d9f4ce61a2f678)
 
+**Mise à jour du 9 octobre 2017** : j'ai publié les données JSON issues de la "méthode jq" [sur data.gouv.fr](https://www.data.gouv.fr/fr/datasets/marches-publics-bretons-au-format-json-reglementaire-2013-2015-1/).
+
+
 <blockquote class="twitter-tweet" data-cards="hidden" data-lang="en">
   <p lang="fr" dir="ltr">
     Nouvel article : j'ai converti les données de la <a href="https://twitter.com/hashtag/CommandePublique?src=hash&ref_src=twsrc%5Etfw">#CommandePublique</a> bretonne au format réglementaire : <a href="https://t.co/nzMNMijAQH">https://t.co/nzMNMijAQH</a> <a href="https://t.co/oUkGQiu4XX">pic.twitter.com/oUkGQiu4XX</a>
