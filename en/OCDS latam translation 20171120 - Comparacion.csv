@@ -1,0 +1,146 @@
+term,pos,schema definition / notes,comment,translation_es,comment_es,translation_es_MX,comment_es_MX,translation_es_CL,comment_es_CL,translation_es_UY,comment_es_UY,translation_es_GT,comment_es_GT,translation_es_BO,comment_es_BO,translation_es_EC,comment_es_EC,translation_es_PY,comment_es_PY,translation_es_AR,comment_es_AR,path
+abatement,Noun,,,reducción,,reducción,,reducción,,reducción,,reducción,,reducción,,reducción,,reducción,,disminución,,#N/A
+accountability,Noun,,,,,Rendición de cuentas,,,,rendición de cuentas,,,,rendición de cuentas,,,,,,rendición de cuentas,,#N/A
+amendment,Noun,"A tender amendment is a formal change to the tender, and generally involves the publication of a new tender notice/release.",,modificación,,Modificación,"Una modificación a la contratación es un cambio formal a la misma, y generalmente implica la publicación de un nuevo aviso. La justificación y una descripción de los cambios realizados se pueden proporcionar aquí.",modificaciones,,modificación,"Podría ser ""ajuste"" o ""modfiicación""",modificacion,,enmienda,enmienda para cambios en cualquier ámbito y adendum si son cambios al contrato,modificación,,modificación,modificación de contrato o adenda al contrato,modificación,,#N/A
+Amount,Noun,,,Monto,,Monto,,Monto,,Monto,,Monto,,Monto,,Monto,,Monto,,Monto,,"planning/budget/amount/amount,
+tender/minValue/amount,
+tender/value/amount,
+tender/items/unit/value/amount,
+awards/value/amount,
+awards/items/unit/value/amount,
+contracts/value/amount,
+contracts/items/unit/value/amount,
+contracts/implementation/transactions/value/amount"
+array,Noun,A list of values in a data structure.,,lista,,Arreglo,,lista,,lista,"No traduciría el término, es de uso bien específico en informática y se entiende mejor en inglés.",matriz,,lista,,lista,,lista,,lista,,#N/A
+assessment,Noun,,,evaluación,,evaluación de proposiciones,,evaluación,?,evaluación,,EVALUACION DE OFERTAS,EVALUACIÓN,evaluación,"Se refiere a la evaluación de criterios de Calidad, Propuesta Técnica y Costo",evaluación,,evaluación,,evaluación,,#N/A
+award,Noun,,i.e. Award stage of a contracting process,adjudicación,,Adjudicación,"Una adjudicación para una contratación determinada. Puede haber más de una adjudicación por licitación, por ejemplo, porque se pueden adjudicar a varios proveedores.",adjudicación,"El término es correcto sólo para licitaciones, en otros casos el concepto es selección del proveedor",adjudicación,,adjudicación,,adjudicación,"se adjudica un proceso de contratación, se toma la decisión de a quién contratar",adjudicación,,adjudicación,,adjudicación,,awards
+award notice,Noun,,,,,Aviso de adjudicación,,notificación  de adjudicación,,publicación de la adjudicación,,notificacion de adjudicacion,,notificación de adjudicación,,Notificación de adjudicación,,notificación de adjudicación,,publicación de adjudicación,,#N/A
+bid,Noun,,,oferta,,Proposición,,oferta,Podría ser también cotización en procesos menos formales a licitación,oferta,,oferta,,oferta,,oferta,,oferta,,oferta,,#N/A
+bid,Verb,,,oferta,,Proposición,,oferta,Podría ser también cotización en procesos menos formales a licitación,oferta,,oferta,,oferta,,oferta,,oferta,,oferta,,#N/A
+bidder,Noun,,,oferente,,Licitante,,oferente,,oferente,,OFERENTE,LICITANTE SE REFIERE UNICAMENTE A LOS OFERETNES EN LA MODALIDAD DE LICITACION,Ofertante/Proponente,Cuando se suscribe una contratación proveedor o contratista,Oferente / Proveedor,En Ecuador el termino licitador puede causar confusión ya que éste es un tipo de procedimiento precontractual de los 38 que existen,oferente,,oferente,,#N/A
+bidding documents,Noun,Documents sent by the bidder to bid for a contract.,,,,Documentos de la proposición,,documentos de la oferta,,documentos de la oferta,,documentos contractuales,,documentos de la oferta,,Documentos precontractuales,,documentos de la oferta,,documentos de la oferta,,#N/A
+budget,Noun,A sum of money dedicated to a specific purpose.,,,,Presupuesto,,presupuesto,en nuestro caso existe concepto de disponible y máximo,presupuesto,,monto a contratar,,presupuesto,,Presupuesto,,presupuesto,,presupuesto,,#N/A
+budget data package,Noun,,,,,paquete de datos del presupuesto,,?,,paquete de datos de presupuesto,,paquete de datos del presupuesto,,paquete de datos del presupuesto,,Información presupuestaria,,,,datos presupuestarios,,#N/A
+budget line item,Noun,,"""A unit of information in a document, record, or statement, shown on a separate line of its own. Line items often refers to a budget element that is separately identified""",partida presupuestaria,,Clave presupuestaria,,Partida,"Considerando que el presupuesto de la nación se construye en la lógica Subtítulo, Item, Asignación",partida presupuestaria,,partida presupuestaria,,Línea presupuestaria,,partida presupuestaria,,línea presupuestaria,,partida presupuestaria,suele llamarse linea o partida presupuestaria.,#N/A
+building block,Noun,,e.g. building block of OCDS schema,,,Componente,,,?,,"No traduciría el término, es de uso bien específico en informática y se entiende mejor en inglés.",,,,,,,,,set de datos,Ver en que contexto se usa.,#N/A
+bulk data,Noun,,,,,Concentrado de datos,,,,datos masivos,,,,,,,,,,,,#N/A
+buyer,Noun,The buyer is the entity whose budget will be used to purchase the goods. This may be different from the procuring entity who may be specified in the tender data.,,comprador,,Comprador,El comprador es la institución pública que tiene asignado el presupuesto que se utilizará para el procedimiento de contratación. Éste puede ser diferente al área administrativa especificada en la etapa de licitación.,comprador,,organismo comprador,"El término ""entidad compradora"" se entendería igualmente",contratante,,entidad contratante,,Entidad contratante,,entidad compradora,,comprador / contratante,,#N/A
+classification,Noun,"A system to categorize goods, organizations, services, etc.",,clasificación,,Clasificación,,Clasificación,,catálogo,,codigo de catalogo,,catalogación,,Catálogo,,catálogo,,calsificación,,"tender/items/classification,
+awards/items/classification,
+contracts/items/classification"
+codelist,Noun,,codelist - a list of predefined values from which you can select a value (from a drop down) rather than typing it in,lista de codigo,,Lista de códigos,,lista de codigo,,lista de códigos,,RENGLON PRESUPUESTARIO,RENGLON PRESUPUESTARIO ,lista de código único de contrataciones estatales,,,,lista de codigo,,lista de datos / código,,#N/A
+community extension,Noun,OCDS extension that is not developed and maintained by the OCP.,,,,Extensión comunitaria,,Extensión de la comunidad,,extensión de la comunidad,,,,,,,,,,extensión comunitaria,,#N/A
+competitive dialogue,Noun,,,,,,,,no utilizamos esa modalidad,,?,,,,,,,,,dialogo competitivo,,#N/A
+complaint,Noun,,Complaint regarding the result of the award session.,recurso,,Inconformidades,,recurso,en Chile se refiere a los reclamos,recurso,,INCONFORMIDAD,"LO HACEN LOS POSIBLES OFERENTES O LA SOCIEDAD EN GENERAL, DURANTE TODA LA FASE DESDE LA PUBLICACION HASTA POSTERIOR A L RESOLUCION DE APROBACION POR PARTE DE LA JUNTA, POSTERIOR A ESTO PUEDEN APLICAR A RECURSOS LEGALES.",recurso,,Denuncia / Reclamo ,,protesta,,impugnación / queja,,#N/A
+conformance,Noun,,Conformance to the OCDS standard.,,,,,,,conformidad,,,,conformidad,,Aceptación,,,,aceptación / conformidad,,#N/A
+contract,Noun,"A document that, once agreed and signed by all parties, legally binds them.",,contrato,,Contrato,,contrato,,contrato,,contrato,,contrato público,,Contrato,,contrato,,contrato,,contracts
+contract notice,Noun,,"""A contract amendment is a formal change to, or extension of, a contract, and generally involves the publication of a new contract notice""",,,Notificación de la adjudicación del contrato,,Notificación de contrato,,aviso de contratación,,NOTIFICACION DE APROBACION DEL CONTRATO,,notificación de contrato,,Publicación del contrato,,notificación de contrato,,notificación del contrato,,#N/A
+contracting body,Noun,,,,,Cuerpo del contrato,,,,cuerpo del contrato,,CUERPO DEL CONTRATO,,documentos del contrato,,,,,,clausulas del contrato,,#N/A
+contracting data,Noun,,,,,Datos del contrato,,datos del contrato,,datos de contratación,,,,,,Información del contrato,,,,información del contrato,,#N/A
+contracting process,Noun,http://standard.open-contracting.org/1.1/en/getting_started/contracting_process/,,,,Procedimiento de contratación,,Proceso de contratación,Recordar que en casos de montos menores la OC puede constituir el contrato,proceso de contratación,,PROCESO DE CONTRATACION,PROCESO DE CONTRATACION,proceso de contratación,,Proceso de contratación,,proceso de contratación,,proceso de contratación,nombre genérico para todo el procedimiento.,#N/A
+core,Adjective,"TO BE DELETED, it's too generic. See dedicated terms ""core block"", ""core extension"", etc.",i.e. core OCDS schema,central,,principal,,central,,central,,central,,central,,central,,central,,central,,#N/A
+core block,Noun,"A block of data that is part of the core standard, as opposed to blocks introduced by extensions.",,,,Componente principal,,?,,bloque principal,,,,,,,,,,,,#N/A
+core extension,Noun,OCDS extension that is part of the OCDS standard and maintained by the OCP.,,,,Extensión principal,,?,,extensión principal,,,,,,,,,,,,#N/A
+criterion,Noun,,,criterio,,criterio,,criterio,,criterio,,criterio,,criterio,,criterio,,criterio,,criterio,,#N/A
+Currency,Noun,The currency for each amount should always be specified using the uppercase 3-letter currency code from ISO4217.,,Moneda,,Moneda,,Moneda,,Moneda,,Moneda,,Moneda,,Moneda,,Moneda,,Moneda,,"planning/budget/amount/currency,
+tender/minValue/currency,
+tender/value/currency,
+tender/items/unit/value/currency,
+awards/value/currency,
+awards/items/unit/value/currency,
+contracts/value/currency,
+contracts/items/unit/value/currency,
+contracts/implementation/transactions/value/currency"
+data,,,,,,Datos,,,,dato,,,,datos  ,,,,datos,,dato,,#N/A
+data model,,,,,,Modelo de datos,,,,modelo de datos,,,,,,,,modelo de datos,,modelo de datos,,#N/A
+data publisher,,,,,,Publicador de datos,,,,datos del publicador,,,,,,,,publicador de datos,,publicador de datos,,#N/A
+deprecated,Adjective,,Applies to data fields that will be removed from the standard in a future update.,descontinuado,,descontinuado,,descontinuado,,discontinuado,,descontinuado,,descontinuado,,descontinuado,,descontinuado,,descontinuado,,#N/A
+document,Noun,,,,,Documento,,,,documento,,documentos,,documento,,Documento,,documento,,documento,,"planning/documents,
+awards/documents,
+contracts/documents,
+contracts/implementation/documents"
+electronic auction,Noun,,,subasta electrónica,,Subasta electrónica,,subasta electrónica,,pregón,,SUBASTA ELECTRONICA,,,,Subasta electrónica ,,subasta a la baja electrónica,,subasta electrónica,,#N/A
+enquiry,Noun,,,consulta,,solicitud de aclaración,,consulta,,consulta,,consulta,,consulta,,consulta,,consulta,,consulta,,#N/A
+equity,Noun,,,capital,,capital,,capital,En el contexto financiero está correcto,capital,,CONFORMACION DE CAPITAL,,capital,,capital,,capital,,capital,,#N/A
+evaluation,Noun,,e.g. data evaluation,evaluación,,Evaluación,,Evaluación,,evaluación,,EVALUACION DE OFERTAS,,evaluación,,Calificación,Determinación de los parámetros de calificación y los valores o calificación asignada por cada proveedor dentro de los procedimientos de contratación pública,evaluación,,evaluación,,#N/A
+extension,Noun,,"e.g. schema extension
+",,,extensión,,extensión,no se refiere al caso de adenda o extensiones de contrato,extensión,,,,,,Extensión/ Anexo ,,,,extensión,,#N/A
+flattened data,Noun,,"i.e. data that is in a flat, table-like structure",,,,,,,datos planos,,,,,,Datos normalizados,,,,dato plano,,#N/A
+Former Value,Noun,,,Valor anterior,,Valor anterior,,Valor anterior,Esto se refiere a un atributo genérico modificado en una adenda,Valor anterior,,Valor anterior,A QUE SE REFIERE,Valor anterior,,Valor anterior,,Valor anterior,,Valor anterior,,#N/A
+gazetteer,Noun,,,diccionario geográfico,,diccionario geográfico,,diccionario geográfico,diccionario georeferenciado,diccionario geográfico,,diccionario geográfico,,diccionario geográfico,,diccionario geográfico,,diccionario geográfico,,ubicación geográfica,,#N/A
+globally unique identifier,Noun,,"""Data that can be linked up using globally unique identifiers for companies is particularly important for fraud and corruption detection use cases""",identificador único global,,Identificador único global,,,,identificador único global,,,,,,Registro Único de Identificación,,,,identificador único global,,#N/A
+good,Noun,,As opposed to the other types of deliverables that are services and works.,bien,,Bien,,Bienes,,bien,,BIENES,,,,Bien,,bienes,,bien,,#N/A
+identifier,Noun,A string a characters that uniquely identifies an entity.,,,,Identificador,,,,identificador,,,,,,Identificación,,,,identificador,,"relatedProcesses/identifier,
+parties/identifier,
+contract/relatedProcesses/identifier"
+implementation,Noun,,i.e. Implementation stage of a contracting process,ejecución,,Ejecución,,ejecución,,ejecución,,VIGENCIA DEL CONTRATO,"A PARTIR DE LA VIGENCIA, SE PUEDE REALIZAR CUALQUIER TRANSCCION EN EL INTERIN DEL CONTRATO.",ejecución,,Ejecución contractual,Fase de desarrollo del contrato,ejecución,,ejecución,,contracts/implementation
+initiation type,Noun,,,,,Tipo de inicio,,"procedencia, tipo de proceso",según estándar OCP,tipo de iniciación o inicio,,TIPO DE CONCURSO,,,,,,,,tipo de contratación,ver.,initiationType
+language,Noun,,,idioma,,Idioma,,idioma,,idioma,,idioma,,idioma,,idioma,,idioma,,idioma,,"planning/documents/language,
+tender/documents/language,
+awards/documents/language,
+contracts/documents/language,
+contracts/implementation/documents/language"
+limited tender,Noun,A tender that is only advertised to a limited number of potential bidders.,,,,Licitación limitada,,licitación privada,,llamado cerrado,,lista corta ,,,no hay licitaciones limitadas,,,,,convocatoria limitada,,#N/A
+line item,Noun,,,partida,,partida,,Línea de producto,,item,,ITEM,APLICA SOLO A UN CAMPO ESPECIFICO,partida,item,partida,,ítem,,renglón,"el renglón contiene el item a contratar, cantidades y especificaciones en cada proceso.",#N/A
+map,Verb,Action of matching the members of two lists.,,,,relacionar,,?,,mapeo,,,,,,,,,,mapeo,,#N/A
+mapping,Noun,Activity of matching the members of two lists.,,,,relacionar,,Mapeo de modalidades,Match entre la modalidad del país y el estándar,mapear,,,,,,,,,,mapeo,,#N/A
+mapping template,Noun,,i.e. a template to map data fields from one system to another system,,,Plantilla para mapeo de datos,,,,plantilla de mapeo,,,,,,,,,,template de mapeo de datos,,#N/A
+milestone,Noun,,,,,hito,,hito,Estados de las documentos,hito,,ETAPAS,,Hito,hito,Hitos,,hito,,hito,,#N/A
+monitoring,Noun,,"""There are two main approaches to fraud and corruption monitoring""",,,Seguimiento,,Monitoreo,,monitoreo,,MONITOREO,,monitoreo,supervisión,Supervisión,,,,monitoreo,,#N/A
+open contracting,Noun,,,,,contrataciones abiertas,,,,compra o contratación abierta,,CONTRATACIONES ABIERTAS,,Contratación Abierta,contratación abierta,Contratación Abierta,,contrataciones públicas abiertas,,contrataciones abiertas,,#N/A
+open contracting data,Noun,,"""Open contracting data can be used to scrutinize procurement documents""",,,datos de contrataciones abiertas,,,,datos de compra o contratación abierta,,DATOS DE CONTRATACIONES ABIERTAS,,Datos abiertos de contrataciones estatales,datos abiertos de contrataciones,Información referente a contratación abierta,,datos de contrataciones públicas abiertas,,datos de las contrataciones abiertas,,#N/A
+open contracting data standard (OCDS),Noun,,,,,Estándar de Datos de Contrataciones Abiertas,,,,estándar de datos de compras o contrataciones abierto,,,,estándar de datos abiertos de contrataciones estatales,Estandar de contrataciones abiertas,Estandar de contrataciones públicas abiertas,,Estándar de Contrataciones Abiertas,,Estándar de datos abiertos,,#N/A
+ownership,Noun,,"""A ‘systemic’ approach looks for suspicious patterns, and makes links between datasets to map out networks of funding, ownership and interests""",,,propiedad,,Propietarios,,dueño,,PROPIETARIO,,,propietario,,,,,propiedad,,#N/A
+package,Noun,A set of OCDS releases or records.,,,,paquete,,,,,"No traduciría el término, es de uso bien específico en informática y se entiende mejor en inglés.",,,,,,,,,paquete,,#N/A
+parties,Noun,Each of the parties (organizations or other participants) referenced in a release must be included in the parties section.,i.e. parties (organizations) involved in the contracting process,,,,,,,,,,,,,,,,,,,parties
+payee,Noun,,,,,receptor,,Receptor del pago,,beneficiario,,BENEFICIARIO,,,,Acreedor,,,,,,#N/A
+planning,Noun,,i.e. Planning stage of a contracting process,,,Planeación,,planificación,,planificación,,PLANEACION,,planeación,,Planeación,,,,Planeación,,planning
+procurement,Noun,,"As in ""Value for money in procurement"".",,,contratación,,compras,,"compra, contratación",,contratacion,,adquisición,,Compra,,adquisición,,compras / contratación,,#N/A
+procurement method,Noun,,,,,Método de contratación,"Especifica el método de contratación utilizando method codelist. Esta es una lista de códigos cerrada. Los tipos de procedimiento de contratación locales deberán relacionarse a uno de los valores de esta lista. La información más específica de los tipos de procedimiento de contratación locales, diferentes a los valores de la lista cerrada, deberán especificarse en el campo ""Detalles del tipo de procedimiento de contratación"".",Modalidad de contratación,,tipo de compra o contratación,,modalidad de contratacion,existen diferentes tipos de contratacion que les llamamos modalidad.,procedimiento de adquisición,,Tipo de procedimiento de compra,,tipo de procedimiento,método de selección o método de adquisición,procedimiento de selección,,tender/procurementMethod
+procurement pipeline,Noun,,,,,Plan de contrataciones,,Lineas estrátegicas de compras,,,?,,,programa anual de contrataciones,,Fases de contratación /Plan Anual de Contrataciones,,,,Plan Anual de Contrataciones / Procedimientos Públicados / Procedimientos con Apertura Próxima,Es la planificación de procedimientos de contratación proyectados y/o los que están publicados.,#N/A
+procuring agency,Noun,,,,,entidad contratante,,Organismo comprador,,agencia compradora o contratante,,entidad contratante,,entidad contratante,,Entidad contratante,,entidad compradora,,oficina de contratación,,#N/A
+procuring entity,Noun,"The entity managing the procurement. This may be different from the buyer who pays for, or uses, the items being procured.",,,,,,,,,,,,,,,,,,,,#N/A
+public contract,Noun,,,,,contrato público,,Contrato,,contrato público,,CONTRATACION PUBLICA,,contrato público,,Contrato de compra pública,,,,contrato público,,#N/A
+public contracting,Noun,,"Synonym of ""public procurement""?",,,contratación pública,,,,contratación pública,,PROVEEDORES DEL ESTADO,,contratación pública,,contratación pública,,,,contratación pública,,#N/A
+Public Private Partnership,Noun,,,,,asociación pública privada,,alianza público privada,Asociadas a acuerdos de colaboración,participación público privada,,ALIANZA PUBLICO PRIVADA APP,,,,Alianza público privada,,alianza público privadad,,asociación público - privada,,#N/A
+public procurement,Noun,,"Synonym of ""public contracting""?",,,contratación pública,,compras públicas,,compra o contratación pública,,CONTRATACIONES PUBLICAS,,compras / contrataciones públicas,,Contratación pública,,compra pública,contratación pública,compras / contrataciones públicas,,#N/A
+publication pattern,Noun,,,,,patrón de publicación,,Estándar de públicación,se refiere al nivel,patrón de publicación,,FORMA DE PUBLICACION,,,,Pistas de publicación,,,,patrones de publicación,,#N/A
+publisher,Noun,,,publicador,,publicador,,publicador,,publicador,,ENTIDAD CONTRATANTE,,entidad contratante,,Entidad contratante,,publicador,,publicador,,#N/A
+rationale,Noun,,,justificación,,justificación,,justificación,,justificación,,justificación,,justificación,,Necesidad / Justificación,,justificación,,justificación,,"planning/rationale,
+tender/amendments/rationale,
+awards/amendments/rationale,
+contracts/amendments/rationale"
+record,Noun,,record - data reflecting a snapshot of current state of a contracting process; it is created by merging releases,,,Registro,,registro,,,"No traduciría el término, es de uso bien específico en informática y se entiende mejor en inglés.",NUMERO DE OPERACION,,,,Estado del procedimiento,,,,registro,,#N/A
+red flag,Noun,,i.e. red flag - as an indication that something is wrong,,,Bandera roja,,,,alerta,,,,,,Alerta,,,,alerta,,#N/A
+relationship,Noun,,The relationship between two related contracting processes.,,,relación,,"Vinculación, relación",en el contexto de relación de datos,relación,,,,relación,,Relación,,,,relación,,"relatedProcesses/relationship,
+contract/relatedProcesses/relationship"
+release,Noun,,release - refers to data published to reflect updates on events in the contracting process,entrega,,Publicación,,entrega,,entrega,"No traduciría el término, idem. que record",NUMERO DE OPERACION,,entrega,,Publicación,,entrega,,entrega,,#N/A
+restricted procedure,Noun,,,,,procedimiento restingido,,proceso excepcional,,procedimiento restringido,,proceso restingido,,,,Procedimiento reservado,,,,compulsa abreviada / adjudicación simple,,#N/A
+reusable tools,Noun,,,,,Herramientas reutilizables,,,,herramientas reutilizables,,,,,,Herramientas ,,,,herramientas re-utilizables,,#N/A
+review body,Noun,,,,,auditor,,cuerpo de revisión,"Experto, situación excepcional",cuerpo o grupo de revisión,,,,,,Ente rector de la compra pública,En el Ecuador se refiere al Servicio Nacional de Contratación Pública,,,comisión evaluadora,,#N/A
+role,Noun,,The role played by a party in a contracting process.,,,función,,rol,,rol,,,,rol,,Parte,,,,rol,,#N/A
+schema,Noun,,e.g. OCDS schema,,,Esquema,,,,,"No traduciría el término, es de uso bien específico en informática y se entiende mejor en inglés.",,,esquema,,esquema,,,,esquema,,#N/A
+schema reference,Noun,"More or less synonym of ""documentation"".",,,,Documentación del esquema,,,,referencia al schema o schema de referencia,"No traduciría el término ""schema"", es de uso bien específico en informática y se entiende mejor en inglés.",CAMPO DE REFERENCIA,,,,,,,,esquema de referencia,,#N/A
+service,Noun,,As opposed to the other types of deliverables that are goods and works.,,,servicio,,servicios,,servicio,,SERVICIO,,servicio,,Servicio,,servicios,,servicio,,#N/A
+signatory,Noun,,,firmante,,firmante,,firmante,,firmante,,CONTRATISTA,,firmante,,firmante,,firmante,,firmante,,#N/A
+standard,Noun,"""A rule or set of rules or requirements which are widely agreed upon or imposed by government."" (Wiktionary)",,estándar,,estándar,,estándar,,estándar,,estándar,,estándar,,estándar,,estándar,,estándar,,#N/A
+standing offer,Noun,,"""There may be more than one award per contracting process e.g. because the contract is split among different providers, or because it is a standing offer.""",,,,,convenio de suministros,,,?,,,oferta vignte,,Oferta vigente,,,,oferta,,#N/A
+status,Noun,,Status of a phase of a contracting process.,,,estatus,,estado,,estado,,Status de concurso,"el satatus para nosotros lo da el sistema, como adjdicado, desierto, en evaluacion",estado,,Estado ,,estado,,estado,,"planning/milestones/status,
+tender/milestones/status,
+contracts/implementation/milestones/status"
+string,Noun,,,cadena,,cadena,,cadena,,cadena,"No traduciría el término, es de uso bien específico en informática y se entiende mejor en inglés.",cadena,,cadena,,cadena,,cadena,,cadena,,#N/A
+subcontract,Noun,,,,,subcontratar,,subcontratación,,subcontrato,,,,subcontratación,,Subcontratación,,subcontrato,,sub-contrato,,#N/A
+subcontractor,Noun,,,,,Subcontratistas,,subcontratista,,subcontratante,,SUBCONTRATACION,PARA GUATEMALA ES LA POSIBILIDAD QUE TIENE EL CONTRATISTA DE SUBCONTRATAR CIERTOS SERVICIOS PARA DAR CUMPLIMIENTO AL CONTRATO.,subcontratante,,Subcontratante,,subcontratado,,sub-contratista,,#N/A
+supplier,Noun,,,proveedor,,Proveedor o contratista,,proveedor,,proveedor,, PROVEEDOR O CONTRATISTA,,proveedor,,proveedor,,proveedor,,proveedor,,#N/A
+tag,Noun,,,,,Etiqueta,,etiqueta,,etiqueta,,,,,,,,,,etiqueta,,#N/A
+tender,Noun,,i.e. Tender stage of a contracting process,,,Licitación,,Licitación,,llamado,Puede ser convocatoria si fuera más gral. Licitación en UY es un tipo de compra,PUBLICACION,"CUANDO SE GENERA UN NUEVO EVENTO, SE REALIZA LA PUBLICACION EN EL SISTEMA GUATECOMPRAS, LA LICITACION O EL LLAMADO A LICITAR ES PARA UNA MODALIDAD ESPECIFICA DE LICITACION.",licitación,Involucra todo el proceso de contratación de una modalidad de contratación que es la licitación (concurso).,,"El procedimiento precontractual corresponde a la fase de: a) publicación, b) preguntas, respuestas y aclaraciones, c) entrega de ofertas, d) calificación y f) adjudicación. A tender le corresponde los literales a), b), c) y los literales d) y f) corresponden a award",licitación,,Llamado / Convocatoria / Evaluación,"Etapa de convocatoria a participar de un procedimiento, ya sea que haya una compulsa de precios o contratación directa.",tender
+tender notice,Noun,,,,,Publicación de la licitación,,Aviso de publicación,,publicación del llamado,,MODIFICACIONES,,aviso de licitación,,Publicación del procedimiento,,aviso de licitación,,Publicación del procedimiento,,#N/A
+tenderer,Noun,,,licitante,,licitante,,comprador,,oferente,,OFERENTE,"LICITANTE ES EL QUE PARTICIPA EN UN PROCESO DE LA MODALIDAD ESPECIFICA DE LICITACION, OFERENTE PARTICIPAN EN TODAS LAS MODALIDADES.",licitante,"(Cuando participa de un proceso de licitación, oferente cuando ofrece servicios o bienes.",Proveedor / Oferente convocado/ invitado ,,oferente,,oferente,,#N/A
+tendering organization,Noun,,"""identifiers for each tendering organization""",,,Organización de la licitación,,organización compradora,,,?,ENTIDAD CONTRATANTE,,entidad contratante,,Entidad contratante,,,,organismo contratante,,#N/A
+transaction,Noun,,,,,Transacción,,Transacción,,transacción,,,,Contratación,Para el caso de suscripción de contratos de compra de bienes o servicios,Transacción ,,,,transacción,,contracts/implementation/transactions
+unique indentifier,Noun,,,,,Identificador único,,identificador único,,identificador único,,NUMERO DE OPERACION,DENTRO DEL SISTEMA GUATECOMPRAS FUNCIONA UN UNICO REGISTRO PARA CADA EVENTO QUE SE PUBLICA.,,,Registro de Identificación,,,,Identificador Único,,#N/A
+use case,Noun,,i.e. use cases for implementing OCDS - what are the different scenarios/reasons why publishers want to implement OCDS,,,Caso de uso,,,,caso de uso,,,,difusión de la convocatoria tiene por objeto el conocimiento por parte de posibles licitantes promoviendo una amplia participaicón.,,Justificación de publicación,"En Ecuador la publicidad y transparencia son principios del Sistema Nacional de Contratación Pública que permiten la mayor concurrencia posible en los procedimientos de contratación pública, hacer un control de gasto público y evitar corrupción",caso de uso,,caso de uso,,#N/A
+valid,Adjective,,"As in ""valid data"".",,,Válido,,valido,,válido,,,,,,,,,,válido,,#N/A
+validation,Noun,Validation involves a technical check on the way data is structured and formatted. http://standard.open-contracting.org/1.1/en/getting_started/validation/ ,e.g. data validation,,,Validación,,Validación,,validación,,ADJUDICACION,,validación,,Validación de infromación,,,,validación,,#N/A
+validator,Noun,,"As in ""OCDS validator"", the tool that validates OCDS data.",,,Validador,,validador,,validador,,,,,,,,,,validador,,#N/A
+work,Noun,,As opposed to the other types of deliverables that are services and goods.,,,Obra pública,,trabajo,,trabajo,,,,,,Trabajo,,obras,,trabajo / obra,,#N/A
